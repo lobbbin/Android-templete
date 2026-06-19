@@ -3,7 +3,7 @@ package com.example.game.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.example.game.persistence.Converters
+import com.example.game.model.Converters
 
 /**
  * President and nation state — persisted as a single row in Room.

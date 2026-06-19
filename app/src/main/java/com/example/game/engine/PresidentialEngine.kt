@@ -77,7 +77,7 @@ class PresidentialEngine {
         // Log quarter change
         if (quarterEnded) {
             log("${state.quarter.displayName} of Year ${state.year} begins", state.quarter.emoji)
-            checkRe-election()
+            checkReelection()
         }
         
         return Pair(quarterEnded, buildGameState())
