@@ -1,0 +1,6 @@
+{
+  "name": "Template App",
+  "description": "An empty Android application template.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
