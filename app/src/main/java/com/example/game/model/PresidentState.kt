@@ -42,5 +42,5 @@ data class PresidentState(
     // Flags
     val isAtWar: Boolean = false,
     val impeached: Boolean = false,
-    val re-elected: Boolean = false,
+    val reelected: Boolean = false,
 )

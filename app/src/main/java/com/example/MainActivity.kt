@@ -81,7 +81,7 @@ fun MainScreen(viewModel: PresidentialViewModel) {
                     modifier = Modifier.fillMaxWidth().padding(12.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    FilledButton(
+                    Button(
                         onClick = { viewModel.advanceDay() },
                         modifier = Modifier.weight(1f),
                     ) {

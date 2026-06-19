@@ -166,7 +166,7 @@ class PresidentialEngine {
             internationalReputation = (state.internationalReputation + 5).coerceIn(0, 100),
         )
         
-        log("Sent $aidAmountM aid to ${nation.name}", "🤝")
+        log("Sent ${aidAmount}M aid to ${nation.name}", "🤝")
         
         return buildGameState()
     }
@@ -230,13 +230,13 @@ class PresidentialEngine {
     
     // ── Win/Lose conditions ─────────────────────────────────────
     
-    private fun checkRe-election() {
+    private fun checkReelection() {
         if (state.quarter == Quarter.Q4 && state.year % 4 == 0 && state.term <= 2) {
-            val re-elected = state.approvalRating >= 50 && state.gdpGrowth >= 0
-            if (re-elected && state.term == 1) {
-                state = state.copy(re-elected = true)
+            val reelected = state.approvalRating >= 50 && state.gdpGrowth >= 0
+            if (reelected && state.term == 1) {
+                state = state.copy(reelected = true)
                 log("Re-elected for a second term!", "🎉")
-            } else if (!re-elected && state.term == 1) {
+            } else if (!reelected && state.term == 1) {
                 state = state.copy(impeached = true) // Lost election
                 log("Lost re-election. Presidency ended.", "❌")
             }
@@ -278,9 +278,9 @@ class PresidentialEngine {
                 type = CrisisType.ECONOMIC,
                 severity = 7,
                 options = listOf(
-                    CrisisOption("stimulus", "Stimulus Package ($500M)", -5, 10, -500, 1, "Boost economy with spending"),
-                    CrisisOption("austerity", "Austerity Measures", 2, -15, 200, -2, "Cut spending, balance budget"),
-                    CrisisOption("tax_cuts", "Tax Cuts", -3, 5, -300, 2, "Cut taxes to stimulate growth"),
+                    CrisisOption("stimulus", "Stimulus Package ($500M)", -5, 10, -500, "Boost economy with spending"),
+                    CrisisOption("austerity", "Austerity Measures", 2, -15, 200, "Cut spending, balance budget"),
+                    CrisisOption("tax_cuts", "Tax Cuts", -3, 5, -300, "Cut taxes to stimulate growth"),
                 ),
             ),
             Crisis(
@@ -291,9 +291,9 @@ class PresidentialEngine {
                 type = CrisisType.DISASTER,
                 severity = 8,
                 options = listOf(
-                    CrisisOption("fema", "Deploy FEMA ($200M)", 0, 10, -200, 0, "Federal disaster response"),
-                    CrisisOption("national_guard", "National Guard", 0, 5, -50, 0, "Deploy military support"),
-                    CrisisOption("state_only", "Let States Handle It", 0, -10, 0, 0, "State responsibility"),
+                    CrisisOption("fema", "Deploy FEMA ($200M)", 0, 10, -200, "Federal disaster response"),
+                    CrisisOption("national_guard", "National Guard", 0, 5, -50, "Deploy military support"),
+                    CrisisOption("state_only", "Let States Handle It", 0, -10, 0, "State responsibility"),
                 ),
             ),
             Crisis(
@@ -304,9 +304,9 @@ class PresidentialEngine {
                 type = CrisisType.SCANDAL,
                 severity = 5,
                 options = listOf(
-                    CrisisOption("fire", "Fire Them Immediately", 0, 5, 0, 0, "Swift action"),
-                    CrisisOption("investigate", "Order Investigation", 0, -5, 0, 0, "Wait for facts"),
-                    CrisisOption("defend", "Defend Them Publicly", 0, -10, 0, 0, "Stand by your team"),
+                    CrisisOption("fire", "Fire Them Immediately", 0, 5, 0, "Swift action"),
+                    CrisisOption("investigate", "Order Investigation", 0, -5, 0, "Wait for facts"),
+                    CrisisOption("defend", "Defend Them Publicly", 0, -10, 0, "Stand by your team"),
                 ),
             ),
             Crisis(
@@ -317,9 +317,9 @@ class PresidentialEngine {
                 type = CrisisType.MILITARY,
                 severity = 9,
                 options = listOf(
-                    CrisisOption("mobilize", "Mobilize Military ($1B)", 0, 10, -1000, 0, "Show of force"),
-                    CrisisOption("sanctions", "Economic Sanctions", -2, 0, 100, 0, "Economic pressure"),
-                    CrisisOption("diplomacy", "Diplomatic Talks", 0, -5, -50, 0, "Peaceful resolution"),
+                    CrisisOption("mobilize", "Mobilize Military ($1B)", 0, 10, -1000, "Show of force"),
+                    CrisisOption("sanctions", "Economic Sanctions", -2, 0, 100, "Economic pressure"),
+                    CrisisOption("diplomacy", "Diplomatic Talks", 0, -5, -50, "Peaceful resolution"),
                 ),
             ),
         )
